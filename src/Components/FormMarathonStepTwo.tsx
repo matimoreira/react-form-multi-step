@@ -21,7 +21,7 @@ class FormMarathonStepTwo extends React.Component<FormStepTwoProps> {
 					<input className="form-control p-2" type='date' value={this.state.registration_deadline} onChange={(e) => this.setState({registration_deadline:e.target.value}) } />
 					<label className="control-label">Fecha de fin para los registros</label>
 					<input className="form-control p-2" type='date' value={this.state.registration_start_date} onChange={(e) => this.setState({registration_start_date:e.target.value}) } />
-					<div className="d-flex justify-content-center pt-4" >
+					<div className="d-flex justify-content-between pt-4" >
 						<a className="btn btn-info m-1" data-slide="prev" href="#carouselExampleControls">Prev</a>
 
 						<a className="btn btn-primary m-1" data-slide="next" href="#carouselExampleControls" onClick={this.handlerEnviar}>Next</a>

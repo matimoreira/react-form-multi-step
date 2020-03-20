@@ -1,16 +1,18 @@
 import React from 'react';
+import Mapa from './mapa/Mapa';
 
-const RouteMarathon = (props: any) => {
+interface FormProps {
+	onFormSubmit({}): void;
+}
+
+const RouteMarathon = (props: FormProps) => {
 	return (
 		<div>
-			<form className='bg-light m-4 p-4 rounded border border-light shadow'>
-				<h1 className="display-5">Mapa</h1>
-				<div className="d-flex justify-content-center pt-4">
-					<a className="btn btn-info m-1" data-slide="prev" href="#carouselExampleControls">Prev</a>
-					<div className="btn btn-primary m-1" >Save</div>
-				</div>
-
-			</form>
+			<div className='bg-light m-4 p-4 rounded border border-light shadow'>
+				<div className="display-4 text-center">Ruta</div>
+				<Mapa onFormSubmit={props.onFormSubmit}/>
+				
+			</div>
 		</div>
 	);
 }

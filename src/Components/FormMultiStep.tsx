@@ -6,6 +6,7 @@ import RouteMarathon from './RouteMarathon';
 interface FormProps {
 	addMarathonStepOne({}): void;
 	addMarathonStepTwo({}): void;
+	addMarathonStepThree({}): void;
 }
 
 
@@ -20,7 +21,7 @@ const FormMultiStep = (props: FormProps) => {
 					<FormMarathonStepTwo onFormSubmit={props.addMarathonStepTwo}></FormMarathonStepTwo>
 				</div>
 				<div className="carousel-item">
-					<RouteMarathon></RouteMarathon>
+					<RouteMarathon onFormSubmit={props.addMarathonStepThree}></RouteMarathon>
 				</div>
 			</div>
 		</div>
