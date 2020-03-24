@@ -6,6 +6,7 @@ import {
 	Link
 } from "react-router-dom";
 import Marathones from './Marathones';
+import Emulator from './Emulator';
 
 // This site has 3 pages, all of which are rendered
 // dynamically in the browser (not server rendered).
@@ -20,7 +21,26 @@ export default function BasicExample() {
 	return (
 		<Router>
 			<div>
-				<ul>
+				<nav className="navbar navbar-expand-lg navbar-light bg-light">
+					<a className="navbar-brand" href="#">Navbar</a>
+					<button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+						<span className="navbar-toggler-icon"></span>
+					</button>
+					<div className="collapse navbar-collapse" id="navbarNav">
+						<ul className="navbar-nav">
+							<li className="nav-item active">
+								<a className="nav-link"><Link to="/">Home</Link><span class="sr-only">(current)</span></a>
+							</li>
+							<li className="nav-item">
+								<a className="nav-link" href="#"><Link to="/marathon">Marathon</Link></a>
+							</li>
+							<li className="nav-item">
+								<a className="nav-link" href="#"><Link to="/emulator">Emulador</Link></a>
+							</li>
+						</ul>
+					</div>
+				</nav>
+				{/*<ul>
 					<li>
 						<Link to="/">Home</Link>
 					</li>
@@ -32,7 +52,7 @@ export default function BasicExample() {
 					</li>
 				</ul>
 
-				<hr />
+				<hr />*/}
 
 				{/*
 					A <Switch> looks through all its children <Route>
@@ -49,7 +69,7 @@ export default function BasicExample() {
 						<Marathones />
 					</Route>
 					<Route path="/emulator">
-						<div>Emulator</div>
+						<Emulator></Emulator>
 					</Route>
 				</Switch>
 			</div>

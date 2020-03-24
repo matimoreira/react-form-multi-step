@@ -8,10 +8,11 @@
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
     "@types/react-scroll": "^1.5.4",
-    "mapbox-gl": "^1.8.1",
+    "mapbox-gl": "^1.9.0",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
     "react-infinite-scroll-component": "^5.0.4",
+    "react-mapbox-gl": "^4.8.3",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.4.0",
     "typescript": "^3.8.3"

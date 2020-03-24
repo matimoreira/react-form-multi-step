@@ -7,7 +7,6 @@ import CardPage from './Components/Card/CardPage';
 import {IMarathon, IDatosMap, IParade} from  './Components/formMultiStep/interfaces';
 
 function Marathones() {
-	let bandera = 1;
 	
 	const title = 'Maratones';
 
@@ -137,8 +136,10 @@ function Marathones() {
 
 	const handlePaginationMarathon = async (start: number) => {
 		console.log("Llamo a handlePaginationMarathon");
+		let success = true;
 		let json;
 		let end = state.pagination.pageSize;
+
 		try{
 			let response = await fetch(
 			`https://localhost:44308/api/Marathons/GetMarathon/
@@ -148,19 +149,22 @@ function Marathones() {
 			json = await response.json();
 		} catch(e) {
 			console.log('fallo post marathon', e);
+			 success = false;
 		}
-		let newState = state;
-		let newDatosMarathon = datosMarathon;
-		newDatosMarathon = newDatosMarathon.concat(json);
-		/*newState.datosMarathones = [...newState.datosMarathones, ...json];*/
-		newState.pagination.page = start;
-		newState.pagination.hasMore = start >= newState.pagination.pageTotal ? false : true ;
 
-		setDatosMarathon(newDatosMarathon);
-		setState(newState);
-		console.log(newState);
-		console.log(state);
-		/*console.log(json);*/
+		if (success) {
+			let newState = state;
+			let newDatosMarathon = datosMarathon;
+			newDatosMarathon = newDatosMarathon.concat(json);
+			/*newState.datosMarathones = [...newState.datosMarathones, ...json];*/
+			newState.pagination.page = start;
+			newState.pagination.hasMore = start >= newState.pagination.pageTotal ? false : true ;
+
+			setDatosMarathon(newDatosMarathon);
+			setState(newState);
+			console.log(newState);
+			console.log(state);
+		}
 	}
 
 	useEffect(() => {
