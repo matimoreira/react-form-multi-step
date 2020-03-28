@@ -35,7 +35,7 @@ interface IParade {
 */
 interface FormProps {
 	children: never[];
-	addMarathonStepOne(marathon: IMarathon): void;
+	addMarathonStepOne(marathon: IMarathon, errors: boolean): void;
 	addMarathonStepTwo(marathon: IMarathon): void;
 	addMarathonStepThree: (datosMap: IDatosMap) => Promise<void>;
 }

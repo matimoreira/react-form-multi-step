@@ -26,7 +26,8 @@ function Marathones() {
 			JsonUploaded: false
 		},
 		datosMap:{},
-		pagination: { page: 0, pageSize: 4, pageTotal: 1, hasMore: true}
+		pagination: { page: 0, pageSize: 4, pageTotal: 1, hasMore: true},
+		errors: false
 	};
 
 	const [datosMarathon, setDatosMarathon] = useState(new Array<IMarathon>());
@@ -34,15 +35,19 @@ function Marathones() {
 	const [state, setState] = useState(_state);
 	
 
-	const handleAddMarathonStepOne = (marathon: IMarathon ) => {
+	const handleAddMarathonStepOne = (marathon: IMarathon, errors: boolean ) => {
 		let newState = state;
 		newState.datosMarathon.title = marathon.title;
 
 		newState.datosMarathon.CompetitorsLimit = marathon.competitorsLimit;
 		newState.datosMarathon.category = marathon.category;
 		newState.datosMarathon.detail = marathon.detail;
+		newState.errors = errors;
 
 		setState(newState);
+		console.log(newState);
+		console.log(marathon);
+		console.log(errors);
 	}
 
 	const handleAddMarathonStepTwo = (marathon: IMarathon) => {
@@ -53,6 +58,8 @@ function Marathones() {
 		state.datosMarathon.RegistrationStartDate = marathon.registrationStartDate;
 
 		setState(newState);
+		console.log(newState);
+		console.log(marathon);
 	}
 
 	const handleAddMarathonStepThree = async (datosMap: IDatosMap) => {
@@ -70,9 +77,11 @@ function Marathones() {
 		newState.datosMap = datosMap;
 
 		setState(newState);
+		console.log(newState);
+		console.log(datosMap);
 
-		let newMarathon = await postMarathon();
-		postParades(newMarathon.idMarathon);
+		/*let newMarathon = await postMarathon();
+		postParades(newMarathon.idMarathon);*/
 	}
 
 	const postMarathon = async () => {
