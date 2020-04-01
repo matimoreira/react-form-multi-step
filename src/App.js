@@ -7,6 +7,7 @@ import {
 } from "react-router-dom";
 import Marathones from './Marathones';
 import Emulator from './Emulator';
+import Mapa from './Components/emulador/mapa';
 
 // This site has 3 pages, all of which are rendered
 // dynamically in the browser (not server rendered).
@@ -37,6 +38,9 @@ export default function BasicExample() {
 							<li className="nav-item">
 								<div className="nav-link" ><Link to="/emulator">Emulador</Link></div>
 							</li>
+							<li className="nav-item">
+								<div className="nav-link" ><Link to="/mapaEmulador">mapaEmulador</Link></div>
+							</li>
 						</ul>
 					</div>
 				</nav>
@@ -49,6 +53,9 @@ export default function BasicExample() {
 					</Route>
 					<Route path="/emulator">
 						<Emulator></Emulator>
+					</Route>
+					<Route path="/mapaEmulador">
+						<Mapa></Mapa>
 					</Route>
 				</Switch>
 			</div>

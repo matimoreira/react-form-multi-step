@@ -17,9 +17,9 @@ function FormMarathonStepTwo(props: IFormStepTwoProps) {
 	};
 	const addDays = (date: Date, days: number): Date => {
 		let newDate = new Date();
-        newDate.setDate(date.getDate() + days);
-        return newDate;
-    }
+		newDate.setDate(date.getDate() + days);
+		return newDate;
+	}
 
 	const [raceStartDate, setRaceStartDate] = useState(addDays(new Date(), 1));
 	const [registrationDeadline, setRegistrationDeadline] = useState(addDays(new Date(), 1));

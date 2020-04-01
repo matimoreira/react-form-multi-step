@@ -10,6 +10,8 @@ function Marathones() {
 	
 	const title = 'Maratones';
 
+	const _session = sessionStorage.getItem('token');;
+
 	const _state = {
 		datosMarathon: {
 			title: '', 
