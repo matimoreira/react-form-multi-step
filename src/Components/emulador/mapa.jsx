@@ -4,6 +4,7 @@ import MapboxDraw from '@mapbox/mapbox-gl-draw';
 import "@mapbox/mapbox-gl-draw/dist/mapbox-gl-draw.css";
 import * as turf from '@turf/turf';
 import './mapa.css';
+import cogoToast from 'cogo-toast';
 
 mapboxgl.accessToken = 'pk.eyJ1IjoiZ2VzdG9ycmVzZXJ2YXRlc2lzIiwiYSI6ImNrMHdvcmduZzAydG8zb28zM2Q0ejI3dDIifQ.M8OxCaPxutyak1dDn7rd8w';
 
@@ -29,6 +30,8 @@ class Mapa extends React.Component {
 	constructor(props) {
 		super(props);
 		/*this.competitors = this.props.competitors;*/
+		
+		
 		let competitors = [
 			{
 				"idUser": 2,
@@ -416,7 +419,27 @@ class Mapa extends React.Component {
 		return Math.floor(Math.random() * (max - min)) + min;
 	}
 
-	componentDidMount() {
+	async componentDidMount() {
+
+		try {
+			cogoToast.info('Importando ruta...');
+			let response = await fetch('https://localhost:44308/api/Marathons/GetMarathonRoute/' + this.props.idMarathon);
+			let route = await response.json();
+			console.log(route);
+
+			await cogoToast.info('Obteniento paradas...');
+			response = await fetch('https://localhost:44308/api/Parades/GetByMarathon/' + this.props.idMarathon);
+			let parades = await response.json();
+			console.log(parades);
+
+			await cogoToast.info('Cargando corredores...');
+			response = await fetch('https://localhost:44308/api/Results/GetUsersByMarathon/' + this.props.idMarathon);
+			let users = await response.json();
+			console.log(users);
+		} catch (e) {
+			console.log('error: ', e);
+		}
+
 		const map = new mapboxgl.Map(this.state.map);
 		let center = 0;
 		let clock = Date;

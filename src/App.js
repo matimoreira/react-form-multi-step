@@ -55,7 +55,7 @@ export default function BasicExample() {
 						<Emulator></Emulator>
 					</Route>
 					<Route path="/mapaEmulador">
-						<Mapa></Mapa>
+						<Mapa idMarathon={20}></Mapa>
 					</Route>
 				</Switch>
 			</div>

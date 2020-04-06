@@ -12,6 +12,7 @@
     "@types/react-datepicker": "^2.11.0",
     "@types/react-scroll": "^1.5.4",
     "@types/yup": "^0.26.33",
+    "cogo-toast": "^4.2.3",
     "formik": "^2.1.4",
     "jquery": "^3.4.1",
     "mapbox-gl": "^1.9.0",
